@@ -7,40 +7,19 @@ from strings.filters import command
 from ZelzalMusic import app
 import config
 
-@app.on_message(
-    command(["اوامر", "الاوامر"])
-)
-async def mmmezat(client, message):
-    await message.reply_text(
-        f"""مرحبًا بك عزيزي {message.from_user.mention} في قسم مميزات سورس cr ميوزك\nهنا تكتب الاوامر """,
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "- المطور .", url=f"tg://openmessage?user_id={config.OWNER_ID}"
-                    ),
-                ],
-                [
-                    InlineKeyboardButton(
-                        "- مسح .", callback_data="close"
-                    ),
-                ],
-            ]
-        ),
-    )
 
 @app.on_message(
     command(["المطور", "السورس", "المصنع"])
 )
 async def maker(client: Client, message: Message):
     await message.reply_photo(
-        photo="https://te.legra.ph/file/08cec0a2a844713e1624a.jpg",
-        caption="~ Team freedom \n~ Dav Source",
+        photo="https://telegra.ph/file/ed1651affb1ae9e964550.jpg",
+        caption="~ Not ᥉ꪮ᥉  \n~ Dev Source. 🍓",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "- مطور البوت .", url=f"tg://openmessage?user_id={config.OWNER_ID}"
+                        "- Dev BoT.", url=f"tg://openmessage?user_id={117913435}"
                     ),
                 ],
                 [
