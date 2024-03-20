@@ -19,7 +19,7 @@ async def maker(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "- Dev Bot .", url=f"tg://openmessage?user_id={config.OWNER_ID}"
+                        "- Dev Bot .", url=f"https://t.me/{usrnam}"
                     ),
                 ],
                 [
