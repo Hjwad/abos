@@ -13,7 +13,7 @@ import config
 )
 async def maker(client: Client, message: Message):
     await message.reply_photo(
-        photo="https://te.legra.ph/file/08cec0a2a844713e1624a.jpg",
+        photo="https://telegra.ph/file/ed1651affb1ae9e964550.jpg",
         caption="~ Not ᥉ꪮ᥉ . \n~ Dev BY ᥉ꪮ᥉ ",
         reply_markup=InlineKeyboardMarkup(
             [
