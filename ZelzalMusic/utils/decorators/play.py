@@ -10,7 +10,7 @@
 from strings.filters import command
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from config import PLAYLIST_IMG_URL, PRIVATE_BOT_MODE, adminlist
+
 from strings import get_string
 from ZelzalMusic import YouTube, app
 from ZelzalMusic.misc import SUDOERS
