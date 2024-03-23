@@ -4,7 +4,6 @@ from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from ZelzalMusic import app, Telegram
 import random
-from config import ASAAQ_CHANNEL, YAFA_NAME
 import asyncio
 from pyrogram import Client, filters
 from random import choice
