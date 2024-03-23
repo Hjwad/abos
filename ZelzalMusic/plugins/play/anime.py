@@ -7,7 +7,6 @@ import random
 import asyncio
 from pyrogram import Client, filters
 from random import choice
-from strings import get_command
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.types import (InlineKeyboardButton,CallbackQuery,
                             InlineKeyboardMarkup, Message)
