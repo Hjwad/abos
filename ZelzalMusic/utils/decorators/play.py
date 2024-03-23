@@ -7,20 +7,31 @@
 #
 # All rights reserved.
 
-from strings.filters import command
+import asyncio
+
+from pyrogram.enums import ChatMemberStatus
+from pyrogram.errors import (
+    ChatAdminRequired,
+    InviteRequestSent,
+    UserAlreadyParticipant,
+    UserNotParticipant,
+)
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-
-from strings import get_string
 from ZelzalMusic import YouTube, app
 from ZelzalMusic.misc import SUDOERS
-from ZelzalMusic.utils.database import (get_cmode, get_lang,
-                                       get_playmode, get_playtype,
-                                       is_active_chat,
-                                       is_commanddelete_on,
-                                       is_served_private_chat)
-from ZelzalMusic.utils.database.memorydatabase import is_maintenance
-from ZelzalMusic.utils.inline.playlist import botplaylist_markup
+from ZelzalMusic.utils.database import (
+    get_assistant,
+    get_cmode,
+    get_lang,
+    get_playmode,
+    get_playtype,
+    is_active_chat,
+    is_maintenance,
+)
+from ZelzalMusic.utils.inline import botplaylist_markup
+from config import PLAYLIST_IMG_URL, SUPPORT_CHAT, adminlist
+from strings import get_string
 
 
 def PlayWrapper(command):
