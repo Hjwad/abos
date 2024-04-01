@@ -46,6 +46,8 @@ CH_US = getenv("CH_US", "mmmsc")
 SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/mmmsc")
 SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/mmmsc")
 
+Muntazer = getenv("muntazer", "mmmsc")
+
 # Set this to True if you want the assistant to automatically leave chats after an interval
 AUTO_LEAVING_ASSISTANT = bool(getenv("AUTO_LEAVING_ASSISTANT","true"))
 
