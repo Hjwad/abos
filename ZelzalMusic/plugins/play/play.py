@@ -10,9 +10,6 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InputMediaPhoto, Message
 from pytgcalls.exceptions import NoActiveGroupCall
 
-from config import (BANNED_USERS, lyrical, YAFA_NAME,
-                    YAFA_CHANNEL, CHANNEL_SUDO)
-
 import config
 from ZelzalMusic import Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app
 from ZelzalMusic.core.call import Zelzaly
@@ -30,7 +27,8 @@ from ZelzalMusic.utils.inline import (
 )
 from ZelzalMusic.utils.logger import play_logs
 from ZelzalMusic.utils.stream.stream import stream
-from config import BANNED_USERS, lyrical
+from config import (BANNED_USERS, lyrical, YAFA_NAME,
+                    YAFA_CHANNEL, CHANNEL_SUDO)
 
 force_btn = InlineKeyboardMarkup(
     [
