@@ -10,6 +10,9 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InputMediaPhoto, Message
 from pytgcalls.exceptions import NoActiveGroupCall
 
+from config import (BANNED_USERS, lyrical, YAFA_NAME,
+                    YAFA_CHANNEL, CHANNEL_SUDO)
+
 import config
 from ZelzalMusic import Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app
 from ZelzalMusic.core.call import Zelzaly
@@ -28,6 +31,23 @@ from ZelzalMusic.utils.inline import (
 from ZelzalMusic.utils.logger import play_logs
 from ZelzalMusic.utils.stream.stream import stream
 from config import BANNED_USERS, lyrical
+
+force_btn = InlineKeyboardMarkup(
+    [
+        [
+            InlineKeyboardButton(   
+              text=f"{YAFA_NAME}", url=f"{YAFA_CHANNEL}",)                        
+        ],        
+    ]
+)
+async def check_is_joined(message):    
+    try:
+        userid = message.from_user.id
+        status = await app.get_chat_member(f"{CHANNEL_SUDO}", userid)
+        return True
+    except Exception:
+        await message.reply_text("**◇︰ عذرا، عليك الانضمام الى قناة البوت أولاً :**",reply_markup=force_btn,parse_mode="markdown",disable_web_page_preview=False)
+        return False
 
 
 @app.on_message(
