@@ -51,10 +51,6 @@ async def check_is_joined(message):
         return False
 
 
-@app.on_message(command(["شغل","تشغيل"])
-    & filters.group
-    & ~BANNED_USERS
-)
 @app.on_message(
     command(
         [
@@ -73,6 +69,8 @@ async def check_is_joined(message):
     )
     & ~BANNED_USERS
 )
+)
+
 @PlayWrapper
 async def play_commnd(
     client,
