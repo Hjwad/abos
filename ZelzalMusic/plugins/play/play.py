@@ -50,7 +50,7 @@ async def check_is_joined(message):
         await message.reply_text(f'┇عزيزي: {message.from_user.mention}\n┇أشتࢪك في قناة البوت أولاً.\n┇قناة البوت: @mmmsc 🍓 ',reply_markup=force_btn,disable_web_page_preview=False)
         return False
 
-
+)
 
 @app.on_message(
     command(
