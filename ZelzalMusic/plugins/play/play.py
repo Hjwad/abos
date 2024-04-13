@@ -53,21 +53,7 @@ async def check_is_joined(message):
 
 
 
-@app.on_message(command(
-        [
-            "شغل",
-            "تشغيل",
-            "فيديو",
-            "/play",
-            "/vplay",
-            "/cplay",
-            "/cvplay",
-            "/playforce",
-            "/vplayforce",
-            "/cplayforce",
-            "/cvplayforce",
-        ]
-    )
+@app.on_message(command(["شغل","تشغيل"])
     & filters.group
     & ~BANNED_USERS
 )
