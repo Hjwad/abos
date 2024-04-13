@@ -36,7 +36,7 @@ force_btn = InlineKeyboardMarkup(
               text=f"اضغط للأشتراك .", url=f"t.me/mmmsc",)                        
         ],        
     ]
-)
+):
 async def check_is_joined(message):    
     try:
         userid = message.from_user.id
