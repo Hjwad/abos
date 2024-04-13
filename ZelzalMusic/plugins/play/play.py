@@ -65,7 +65,6 @@ async def check_is_joined(message):
 )
 @PlayWrapper
 
-@PlayWrapper
 async def play_commnd(
     client,
     message: Message,
