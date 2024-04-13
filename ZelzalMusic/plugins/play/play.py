@@ -6,14 +6,12 @@ import random
 import string
 
 
-from ast import ExceptHandler
 from ZelzalMusic.plugins.play.filters import command
-from pyrogram import filters, Client
+from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, Message
 from pytgcalls.exceptions import NoActiveGroupCall
 
 import config
-from config import BOT_TOKEN
 from ZelzalMusic import Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app
 from ZelzalMusic.core.call import Zelzaly
 from ZelzalMusic.utils import seconds_to_min, time_to_seconds
