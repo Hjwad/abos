@@ -5,10 +5,9 @@
 import random
 import string
 
-
 from ZelzalMusic.plugins.play.filters import command
 from pyrogram import filters
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, Message
+from pyrogram.types import InlineKeyboardMarkup, InputMediaPhoto, Message
 from pytgcalls.exceptions import NoActiveGroupCall
 
 import config
@@ -29,6 +28,7 @@ from ZelzalMusic.utils.inline import (
 from ZelzalMusic.utils.logger import play_logs
 from ZelzalMusic.utils.stream.stream import stream
 from config import BANNED_USERS, lyrical
+
 
 force_btn = InlineKeyboardMarkup(
     [
