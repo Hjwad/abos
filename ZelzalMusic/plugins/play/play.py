@@ -71,6 +71,30 @@ async def check_is_joined(message):
     & filters.group
     & ~BANNED_USERS
 )
+
+
+
+
+@app.on_message(command(
+        [
+            "شغل",
+            "تشغيل",
+            "فيديو",
+            "/play",
+            "/vplay",
+            "/cplay",
+            "/cvplay",
+            "/playforce",
+            "/vplayforce",
+            "/cplayforce",
+            "/cvplayforce",
+        ]
+    )
+    & filters.group
+    & ~BANNED_USERS
+)
+
+
 @PlayWrapper
 async def play_commnd(
     client,
