@@ -68,7 +68,6 @@ async def check_is_joined(message):
             "/cvplayforce",
         ]
     )
-    & filters.group
     & ~BANNED_USERS
 )
 
@@ -90,7 +89,6 @@ async def check_is_joined(message):
             "/cvplayforce",
         ]
     )
-    & filters.group
     & ~BANNED_USERS
 )
 
