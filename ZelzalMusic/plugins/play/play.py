@@ -69,7 +69,6 @@ async def check_is_joined(message):
     )
     & ~BANNED_USERS
 )
-)
 
 @PlayWrapper
 async def play_commnd(
