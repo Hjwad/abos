@@ -41,7 +41,7 @@ async def check_is_joined(message):
         status = await app.get_chat_member("mmmsc", userid)
         return True
     except Exception:
-        await message.reply_text(f'🍓┇عزيزي: {message.from_user.mention}\n┇أشتࢪك في قناة البوت أولاً.\n👁️‍🗨️┇قناة البوت: @mmmsc ',reply_markup=force_btn,disable_web_page_preview=False)
+        await message.reply_text(f'┇عزيزي: {message.from_user.mention}\n┇أشتࢪك في قناة البوت أولاً.\n┇قناة البوت: @mmmsc 🍓 ',reply_markup=force_btn,disable_web_page_preview=False)
         return False
 
 
@@ -69,8 +69,6 @@ async def play_commnd(
     url,
     fplay,
 ):
-    if not await check_is_joined(message):
-        return
     mystic = await message.reply_text(
         _["play_2"].format(channel) if channel else _["play_1"]
     )
@@ -78,8 +76,8 @@ async def play_commnd(
     slider = None
     plist_type = None
     spotify = None
-    user_id = message.from_user.id
-    user_name = message.from_user.first_name
+    user_id = message.from_user.id if message.from_user else "1121532100"
+    user_name = message.from_user.first_name if message.from_user else "المشـرف"
     audio_telegram = (
         (message.reply_to_message.audio or message.reply_to_message.voice)
         if message.reply_to_message
@@ -203,6 +201,7 @@ async def play_commnd(
                     details["duration_min"],
                 )
         elif await Spotify.valid(url):
+            user_mention = message.from_user.mention if message.from_user.mention else "المشـرف"
             spotify = True
             if not config.SPOTIFY_CLIENT_ID and not config.SPOTIFY_CLIENT_SECRET:
                 return await mystic.edit_text(
@@ -224,7 +223,7 @@ async def play_commnd(
                 streamtype = "playlist"
                 plist_type = "spplay"
                 img = config.SPOTIFY_PLAYLIST_IMG_URL
-                cap = _["play_11"].format(app.mention, message.from_user.mention)
+                cap = _["play_11"].format(app.mention, user_mention)
             elif "album" in url:
                 try:
                     details, plist_id = await Spotify.album(url)
@@ -233,7 +232,7 @@ async def play_commnd(
                 streamtype = "playlist"
                 plist_type = "spalbum"
                 img = config.SPOTIFY_ALBUM_IMG_URL
-                cap = _["play_11"].format(app.mention, message.from_user.mention)
+                cap = _["play_11"].format(app.mention, user_mention)
             elif "artist" in url:
                 try:
                     details, plist_id = await Spotify.artist(url)
@@ -262,7 +261,7 @@ async def play_commnd(
                     return await mystic.edit_text(_["play_3"])
                 streamtype = "playlist"
                 plist_type = "apple"
-                cap = _["play_12"].format(app.mention, message.from_user.mention)
+                cap = _["play_12"].format(app.mention, user_mention)
                 img = url
             else:
                 return await mystic.edit_text(_["play_3"])
@@ -363,7 +362,7 @@ async def play_commnd(
                     _,
                     track_id,
                     user_id,
-                    "v" if video else "a",
+                    "ف" if video else "a",
                     "c" if channel else "g",
                     "f" if fplay else "d",
                 )
@@ -497,7 +496,7 @@ async def play_music(client, CallbackQuery, _):
             _["play_13"],
             reply_markup=InlineKeyboardMarkup(buttons),
         )
-    video = True if mode == "v" else None
+    video = True if mode == "ف" else None
     ffplay = True if fplay == "f" else None
     try:
         await stream(
@@ -520,10 +519,10 @@ async def play_music(client, CallbackQuery, _):
 
 
 @app.on_callback_query(filters.regex("ZelzalymousAdmin") & ~BANNED_USERS)
-async def Zelzalymous_check(client, CallbackQuery):
+async def anonymous_check(client, CallbackQuery):
     try:
         await CallbackQuery.answer(
-            "» ʀᴇᴠᴇʀᴛ ʙᴀᴄᴋ ᴛᴏ ᴜsᴇʀ ᴀᴄᴄᴏᴜɴᴛ :\n\nᴏᴘᴇɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ sᴇᴛᴛɪɴɢs.\n-> ᴀᴅᴍɪɴɪsᴛʀᴀᴛᴏʀs\n-> ᴄʟɪᴄᴋ ᴏɴ ʏᴏᴜʀ ɴᴀᴍᴇ\n-> ᴜɴᴄʜᴇᴄᴋ ᴀɴᴏɴʏᴍᴏᴜs ᴀᴅᴍɪɴ ᴘᴇʀᴍɪssɪᴏɴs.",
+            "» ʀᴇᴠᴇʀᴛ ʙᴀᴄᴋ ᴛᴏ ᴜsᴇʀ ᴀᴄᴄᴏᴜɴᴛ :\n\nᴏᴘᴇɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ sᴇᴛᴛɪɴɢs.\n-> ᴀᴅᴍɪɴɪsᴛʀᴀᴛᴏʀs\n-> ᴄʟɪᴄᴋ ᴏɴ ʏᴏᴜʀ ɴᴀᴍᴇ\n-> ᴜɴᴄʜᴇᴄᴋ ᴀᴅᴍɪɴ ᴘᴇʀᴍɪssɪᴏɴs.",
             show_alert=True,
         )
     except:
@@ -562,7 +561,7 @@ async def play_playlists_command(client, CallbackQuery, _):
         _["play_2"].format(channel) if channel else _["play_1"]
     )
     videoid = lyrical.get(videoid)
-    video = True if mode == "v" else None
+    video = True if mode == "ف" else None
     ffplay = True if fplay == "f" else None
     spotify = True
     if ptype == "yt":
