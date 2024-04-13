@@ -14,6 +14,7 @@ from ZelzalMusic.plugins.play.filters import command
 from pytgcalls.exceptions import NoActiveGroupCall
 
 import config
+from config import BOT_TOKEN
 from ZelzalMusic import Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app
 from ZelzalMusic.core.call import Zelzaly
 from ZelzalMusic.utils import seconds_to_min, time_to_seconds
